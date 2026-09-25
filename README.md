@@ -23,7 +23,4 @@ g++ --std=c++11 *.cpp -o cvp
 
 Here is an example of the program running:
 
-```
 <img width="821" height="420" alt="image" src="https://github.com/user-attachments/assets/25b0abc2-8014-4a16-8e01-98910f3f77ba" />
-
-```
