@@ -2,7 +2,7 @@
 
 ## Description
 
-**version 2.0**
+**version 2.1**
 
 The user provides the amount of colors, then the user provides the desired colorblind type, then provides the colors as hex values. 
 From there, the program applies colorblind modifications and tells the user the usability of the colors.
