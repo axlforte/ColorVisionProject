@@ -2,11 +2,23 @@
 
 ## Description
 
-**version 1.0**
+**version 2.0**
 
-The user provides the amount of colors, then the user provides the desired colorblind type, then provides the colors. 
+The user provides the amount of colors, then the user provides the desired colorblind type, then provides the colors as hex values. 
 From there, the program applies colorblind modifications and tells the user the usability of the colors.
 
+### New features
+
+The user can now ask the program to output results to a file. 
+- for 2 color comparisons: the program writes (or overwrites) a single file called colorComparison_color.txt
+- for multicolor comparisons: the program writes (or overwrites) a file for each comparison. The files hold the first compared color and second compared color in the title.
+
+The output file contains the RGB value of the first color, the RGB value of the second color, the total difference between the colors, and the same rating provided when the program is run.
+
+### Removed features
+
+Providing RGB colors has been removed over UX concerns. The user is no longer prompted to choose RGB or HEX, and all colors are expected to be provided as hex values. 
+The output files 
 
 ## Developer
 
