@@ -2,7 +2,7 @@
 
 ## Description
 
-**version 2.1**
+**version 2.2**
 
 The user provides the amount of colors, then the user provides the desired colorblind type, then provides the colors as hex values. 
 From there, the program applies colorblind modifications and tells the user the usability of the colors.
@@ -14,6 +14,8 @@ The user can now ask the program to output results to a file.
 - for multicolor comparisons: the program writes (or overwrites) a file for each comparison. The files hold the first compared color and second compared color in the title.
 
 The output file contains the RGB value of the first color, the RGB value of the second color, the total difference between the colors, and the same rating provided when the program is run.
+
+The user can supply 'na' as the palette length during multicolor comparisons. The program will ask for colors until the user provides the word quit as a color. 
 
 ### Removed features
 
