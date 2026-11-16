@@ -1,5 +1,5 @@
 #include <iostream>
-//I cant remember if this was in the repo but i wanted it anyways
+#include <vector>
 #include <fstream>
 using namespace std;
 #include <string> 
@@ -10,6 +10,10 @@ bool writeToFile;
 void writeResultsToFile(string name, string something){
   ofstream colorFile;
   colorFile.open("colorComparison_" + name + ".txt");
+  if (!colorFile.is_open()){
+    cout << "The file could not be opened!" << endl;
+    return;
+  }
   colorFile << name << ": " << something << "\n";
   colorFile.close();
 }
@@ -145,12 +149,53 @@ int twoColorsPalette(char blindnessType)
   return 0;
 }
 
+int variableColorsPalette(char blindnessType){
+  vector<string> colors;
+  string input = "0";
+
+  while(input != "quit"){
+    std::cout << endl << "Please input a color (or 'quit' to finish): ";
+    std::cin >> input;
+
+    if(input != "quit"){
+      colors.push_back(input);
+    }
+  }
+
+  int arrayLength = colors.size();
+
+  for(int in = 0; in < arrayLength - 1; in++){
+    for(int out = in + 1; out < arrayLength; out++){
+      if(in == out)
+        continue;
+
+      std::cout << colors[in] << " " << colors[out] << endl;
+      //get the difference between the colors currently selected by the double loops
+      int val = getDiff(colors[in], colors[out], blindnessType, "Color #" + std::to_string(in + 1) + " to #" + std::to_string(out + 1));
+
+      //get the difference between the two listed values
+      std::cout << "The difference value for color #" << in + 1 << " and #" << out + 1 << " is: " << val << ". ";
+
+      std::cout << colorBlindnessRating(val);
+      std::cout << std::endl;
+    }
+  }
+
+  return 0;
+}
+
 //gets an array of colors, then compares all of the colors to eachother
 int multiColorsPalette(char blindnessType){
   int arrayLength;// need to remember what the array length is for 2 seconds
+  string trueLength;
 
-  std::cout << endl << "How large is your palette: ";
-  std::cin >> arrayLength;
+  std::cout << endl << "How large is your palette (put na if you dont know): ";
+  std::cin >> trueLength;
+
+  if(trueLength == "na"){
+    variableColorsPalette(blindnessType);
+    return 0;
+  }
 
   //initialize the array with the length specified before
   string* colors = new string[arrayLength];
@@ -170,7 +215,7 @@ int multiColorsPalette(char blindnessType){
 
       std::cout << colors[in] << " " << colors[out] << endl;
       //get the difference between the colors currently selected by the double loops
-      int val = getDiff(colors[in], colors[out], blindnessType, "Color #" + std::to_string(in) + " to #" + std::to_string(out));
+      int val = getDiff(colors[in], colors[out], blindnessType, "Color #" + std::to_string(in + 1) + " to #" + std::to_string(out + 1));
 
       //get the difference between the two listed values
       std::cout << "The difference value for color #" << in + 1 << " and #" << out + 1 << " is: " << val << ". ";
