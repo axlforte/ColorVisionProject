@@ -101,9 +101,14 @@ int getDiff(string colorOne, string colorTwo, char blindnessType, string name = 
 
   //write stuff to file
   if (writeToFile){
-    string tomp = "r-" + to_string(valueOneRed);
-    tomp += ", g-" + to_string(valueOneGreen);
-    tomp += ", b-" + to_string(valueOneBlue);
+    string tomp = "r1-" + to_string(valueOneRed);
+    tomp += ", g1-" + to_string(valueOneGreen);
+    tomp += ", b1-" + to_string(valueOneBlue);
+    tomp += "\n";
+    tomp += ", r2-" + to_string(valueTwoRed);
+    tomp += ", g2-" + to_string(valueTwoGreen);
+    tomp += ", b2-" + to_string(valueTwoBlue);
+    tomp += "\n";
     tomp += ", difference-" + to_string(totalDiff);
     tomp += ", rating-" + colorBlindnessRating(totalDiff);
     writeResultsToFile(name, tomp);
